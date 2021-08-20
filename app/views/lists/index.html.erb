@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <a class="navbar-brand" href="#">
     <img src="<%=asset_url('logo.jpg')%>" />
-</a>
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -12,9 +12,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">Bookmark</a>
       </li>
-      <%# <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" href="#"></a>
-      </li> %>
+      </li>
       <li class="nav-item dropdown">
         <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -27,6 +27,7 @@
 </div>
 
 
+
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=asset_url('cinema2.jpg')%>);">
   <div class="container">
     <div class="d-flex flex-column align-items-center">
@@ -37,9 +38,12 @@
   </div>
 </div>
 
+
+
 <div class="cards">
   <% @lists.each do |list| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    <% url = list.photo.attached? ? cl_image_path(list.photo.key)  : "https://media.istockphoto.com/vectors/movie-time-vector-illustration-cinema-poster-concept-on-red-round-vector-id911590226?k=6&m=911590226&s=612x612&w=0&h=u6vP2FnJG8Ib3O1xofOUeJ5NtHWrWdRnV-OSL8arBnk=" %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= url %>)">
       <%= list.name %>
       <%= link_to "List info", list_path(list), class: "a-primary" %>
       <%= link_to 'edit', edit_list_path(list), class: "a-primary" %>
