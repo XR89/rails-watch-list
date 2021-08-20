@@ -1,17 +1,18 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_list, only: [:show, :edit, :update]
 
   def index
     @lists = List.all
+    @movies = Movie.all
   end
 
-  def show; end
+  def show
+    @bookmarks = @list.bookmarks
+  end
 
   def new
     @list = List.new
   end
-
-  def edit; end
 
   def create
     @list = List.new(list_params)
@@ -24,23 +25,21 @@ class ListsController < ApplicationController
     end
   end
 
-  def update
-    if @list.update(list_params)
-      redirect_to @list, notice: 'list was successfully updated.'
-    else
-      render :edit
-    end
-  end
+  # def edit; end
 
-  def destroy
-    @list.destroy
-    redirect_to @list, notice: 'list was successfully destroyed.'
-  end
+  # def update
+  #   if @list.update(list_params)
+  #     redirect_to @list, notice: 'list was successfully updated.'
+  #   else
+  #     render :edit
+  #   end
+  # end
 
   private
 
   def set_list
     @list = List.find(params[:id])
+    @movies = @list.movies
   end
 
   def list_params

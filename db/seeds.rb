@@ -12,7 +12,8 @@ require 'open-uri'
 url = "http://tmdb.lewagon.com/movie/top_rated"
 films = URI.open(url).read
 films_hash = JSON.parse(films)
-
+puts "Deleting movies..."
+Movie.destroy_all
 puts "Creating a list of movies"
 
 films_hash["results"].each do |movie_info|

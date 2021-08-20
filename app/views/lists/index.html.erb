@@ -1,2 +1,48 @@
-<h1>Lists#index</h1>
-<p>Find me in app/views/lists/index.html.erb</p>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <a class="navbar-brand" href="#">
+    <img src="<%=asset_url('logo.jpg')%>" />
+</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Bookmark</a>
+      </li>
+      <%# <li class="nav-item">
+        <a class="nav-link" href="#"></a>
+      </li> %>
+      <li class="nav-item dropdown">
+        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=asset_url('cinema2.jpg')%>);">
+  <div class="container">
+    <div class="d-flex flex-column align-items-center">
+      <h1>Movies <strong>lists</strong> for <strong>cinephiles</strong>!</h1>
+      <p>Get started by adding a list below!</p>
+      <%= link_to 'Add a list 🎦', new_list_path, class: "btn btn-flat" %>
+    </div>
+  </div>
+</div>
+
+<div class="cards">
+  <% @lists.each do |list| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      <%= list.name %>
+      <%= link_to "List info", list_path(list), class: "a-primary" %>
+      <%= link_to 'edit', edit_list_path(list), class: "a-primary" %>
+  </div>
+  <% end %>
+</div>

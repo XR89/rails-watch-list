@@ -1,2 +1,28 @@
 // Import page-specific CSS files here.
 @import "home";
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+  // text-align: center;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  // text-align: center;
+}
+
+.btn {
+  // margin-left: auto;
+  // margin-right: auto;
+}
